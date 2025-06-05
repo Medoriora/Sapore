@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы о ресторане</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #5f4934;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .reviews {
+            flex: 2;
+            margin-right: 20px;
+        }
+
+        .add-review {
+            flex: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d4a373;
+        }
+
+        .review {
+            border: 1px solid #d4a373;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+        }
+
+        .review h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .review .stars {
+            color: #d4a373;
+        }
+
+        .review p {
+            margin: 5px 0;
+        }
+
+        .add-review label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .add-review input, .add-review textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #d4a373;
+            border-radius: 4px;
+        }
+
+        .add-review .stars {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        .add-review .star {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .add-review .star.selected {
+            color: #d4a373;
+        }
+
+        .add-review button {
+            background-color: #d4a373;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add-review button:hover {
+            background-color: #5f4934;
+        }
+
+        .average-rating {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #d4a373;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="reviews">
+            <h1>Отзывы о нашем ресторане</h1>
+
+            <div class="average-rating">
+                Средний рейтинг: <span id="average-rating">0</span> / 5
+            </div>
+
+            <div id="reviews">
+                <!-- Отзывы будут добавляться сюда -->
+            </div>
+        </div>
+
+        <div class="add-review">
+            <h2>Добавить отзыв</h2>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" placeholder="Ваше имя">
+
+            <label for="review">Отзыв:</label>
+            <textarea id="review" rows="4" placeholder="Ваш отзыв"></textarea>
+
+            <label for="cons">Недостатки:</label>
+            <textarea id="cons" rows="2" placeholder="Недостатки (если есть)"></textarea>
+
+            <label>Рейтинг:</label>
+            <div class="stars" id="rating-stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+
+            <button onclick="addReview()">Добавить</button>
+        </div>
+    </div>
+
+    <script>
+let reviews = [];
+let selectedRating = 0;
+
+// Получить отзывы с сервера и отрисовать их
+async function fetchReviews() {
+  const res = await fetch('http://localhost:3000/reviews');
+  reviews = await res.json();
+  renderReviews();
+}
+
+function calculateAverageRating() {
+  if (reviews.length === 0) return 0;
+  const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+  return (total / reviews.length).toFixed(1);
+}
+
+function renderReviews() {
+  const reviewsContainer = document.getElementById('reviews');
+  reviewsContainer.innerHTML = '';
+  reviews.forEach(review => {
+    const reviewElement = document.createElement('div');
+    reviewElement.classList.add('review');
+    reviewElement.innerHTML = `
+      <h3>${review.name}</h3>
+      <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+      <p>${review.text}</p>
+      <p><strong>Недостатки:</strong> ${review.cons || 'Не указаны'}</p>
+    `;
+    reviewsContainer.appendChild(reviewElement);
+  });
+
+  document.getElementById('average-rating').textContent = calculateAverageRating();
+}
+
+async function addReview() {
+  const name = document.getElementById('name').value.trim();
+  const text = document.getElementById('review').value.trim();
+  const cons = document.getElementById('cons').value.trim();
+
+  if (!name || !text || selectedRating === 0) {
+    alert('Пожалуйста, заполните все поля и выберите рейтинг.');
+    return;
+  }
+
+  const newReview = { name, text, cons, rating: selectedRating };
+
+  const res = await fetch('http://localhost:3000/reviews', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newReview),
+  });
+
+  if (res.ok) {
+    const savedReview = await res.json();
+    reviews.push(savedReview);
+    renderReviews();
+
+    // Очистить поля формы
+    document.getElementById('name').value = '';
+    document.getElementById('review').value = '';
+    document.getElementById('cons').value = '';
+    resetStars();
+  } else {
+    alert('Ошибка при отправке отзыва.');
+  }
+}
+
+function resetStars() {
+  selectedRating = 0;
+  document.querySelectorAll('.star').forEach(star => star.classList.remove('selected'));
+}
+
+document.querySelectorAll('.star').forEach(star => {
+  star.addEventListener('click', () => {
+    selectedRating = parseInt(star.dataset.value);
+    document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
+    for (let i = 1; i <= selectedRating; i++) {
+      document.querySelector(`.star[data-value="${i}"]`).classList.add('selected');
+    }
+  });
+});
+
+// Загрузка отзывов при старте страницы
+fetchReviews();
+    </script>
+</body>
+</html>

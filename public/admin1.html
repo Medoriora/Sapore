@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Админ — Управление отзывами и заказами</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0; padding: 0;
+        color: #333;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #5f4934;
+        margin-bottom: 25px;
+    }
+    h2 {
+        border-bottom: 2px solid #d4a373;
+        padding-bottom: 8px;
+        color: #d4a373;
+    }
+    /* Отзывы */
+    .reviews-list, .orders-list {
+        margin-top: 15px;
+    }
+    .review, .order {
+        border: 1px solid #d4a373;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        background: #fff8f0;
+    }
+    .review h3, .order h3 {
+        margin: 0 0 6px 0;
+        color: #a05e1b;
+    }
+    .stars {
+        color: #d4a373;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    .review p, .order p {
+        margin: 4px 0;
+    }
+    button.delete-btn {
+        background-color: #e74c3c;
+        border: none;
+        padding: 6px 12px;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 8px;
+        transition: background-color 0.3s;
+    }
+    button.delete-btn:hover {
+        background-color: #c0392b;
+    }
+    /* Добавление отзыва */
+    form#add-review-form {
+        margin-top: 20px;
+        background: #fff8f0;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #d4a373;
+    }
+    form#add-review-form label {
+        display: block;
+        margin: 12px 0 5px;
+        font-weight: bold;
+        color: #6b4a1d;
+    }
+    form#add-review-form input, 
+    form#add-review-form textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #d4a373;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    form#add-review-form textarea {
+        resize: vertical;
+    }
+    .stars-select {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
+    .stars-select span {
+        font-size: 26px;
+        color: #ccc;
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.3s;
+    }
+    .stars-select span.selected {
+        color: #d4a373;
+    }
+    form#add-review-form button {
+        background-color: #5f4934;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    form#add-review-form button:hover {
+        background-color: #3e2f1f;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <h1>Админская панель — Управление отзывами и заказами</h1>
+
+    <!-- Секция отзывов -->
+    <section class="reviews">
+        <h2>Отзывы</h2>
+
+        <div class="average-rating">
+            Средний рейтинг: <span id="average-rating">0</span> / 5
+        </div>
+
+        <div class="reviews-list" id="reviews-list">
+            <!-- Здесь будут отзывы -->
+        </div>
+
+        <form id="add-review-form">
+            <h3>Добавить отзыв</h3>
+            <label for="review-name">Имя:</label>
+            <input type="text" id="review-name" required />
+
+            <label for="review-text">Отзыв:</label>
+            <textarea id="review-text" rows="4" required></textarea>
+
+            <label for="review-cons">Недостатки:</label>
+            <textarea id="review-cons" rows="2"></textarea>
+
+            <label>Рейтинг:</label>
+            <div class="stars-select" id="stars-select">
+                <span data-value="1">&#9733;</span>
+                <span data-value="2">&#9733;</span>
+                <span data-value="3">&#9733;</span>
+                <span data-value="4">&#9733;</span>
+                <span data-value="5">&#9733;</span>
+            </div>
+
+            <button type="submit">Добавить отзыв</button>
+        </form>
+    </section>
+
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd" />
+
+    <!-- Секция заказов -->
+    <section class="orders">
+        <h2>Заказы</h2>
+        <div class="orders-list" id="orders-list">
+            <!-- Заказы будут здесь -->
+        </div>
+    </section>
+
+</div>
+
+<script>
+    const API_BASE = 'http://localhost:3000';
+
+    // --- Отзывы ---
+    let reviews = [];
+    let selectedRating = 0;
+
+    // Загрузка отзывов с сервера
+    async function fetchReviews() {
+        try {
+            const res = await fetch(API_BASE + '/reviews');
+            reviews = await res.json();
+            renderReviews();
+        } catch (error) {
+            alert('Ошибка загрузки отзывов: ' + error.message);
+        }
+    }
+
+    // Рассчитать средний рейтинг
+    function calculateAverageRating() {
+        if (reviews.length === 0) return 0;
+        const total = reviews.reduce((sum, r) => sum + r.rating, 0);
+        return (total / reviews.length).toFixed(1);
+    }
+
+    // Отобразить отзывы на странице
+    function renderReviews() {
+        const container = document.getElementById('reviews-list');
+        container.innerHTML = '';
+
+        reviews.forEach(review => {
+            const div = document.createElement('div');
+            div.classList.add('review');
+            div.innerHTML = `
+                <h3>${review.name}</h3>
+                <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                <p>${review.text}</p>
+                <p><strong>Недостатки:</strong> ${review.cons || 'Не указаны'}</p>
+                <button class="delete-btn" data-id="${review._id}">Удалить отзыв</button>
+            `;
+            container.appendChild(div);
+        });
+
+        document.getElementById('average-rating').textContent = calculateAverageRating();
+
+        // Добавляем обработчики на кнопки удаления отзывов
+        container.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.id;
+                if (confirm('Удалить этот отзыв?')) {
+                    await deleteReview(id);
+                }
+            });
+        });
+    }
+
+    // Добавить отзыв
+    async function addReview(data) {
+        try {
+            const res = await fetch(API_BASE + '/reviews', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            if (!res.ok) throw new Error('Ошибка при добавлении отзыва');
+            await fetchReviews();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    // Удалить отзыв
+    async function deleteReview(id) {
+        try {
+            const res = await fetch(API_BASE + '/reviews/' + id, {
+                method: 'DELETE'
+            });
+            if (!res.ok) throw new Error('Ошибка при удалении отзыва');
+            await fetchReviews();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    // Обработка кликов на звёздах рейтинга
+    const starsSelect = document.getElementById('stars-select');
+    starsSelect.querySelectorAll('span').forEach(star => {
+        star.addEventListener('click', () => {
+            selectedRating = parseInt(star.dataset.value);
+            updateStarSelection();
+        });
+    });
+
+    function updateStarSelection() {
+        starsSelect.querySelectorAll('span').forEach(star => {
+            star.classList.toggle('selected', parseInt(star.dataset.value) <= selectedRating);
+        });
+    }
+
+    // Обработка отправки формы добавления отзыва
+    document.getElementById('add-review-form').addEventListener('submit', async e => {
+        e.preventDefault();
+
+        const name = document.getElementById('review-name').value.trim();
+        const text = document.getElementById('review-text').value.trim();
+        const cons = document.getElementById('review-cons').value.trim();
+
+        if (!name || !text || selectedRating === 0) {
+            alert('Пожалуйста, заполните все поля и выберите рейтинг.');
+            return;
+        }
+
+        await addReview({ name, text, cons, rating: selectedRating });
+
+        // Очистка формы
+        e.target.reset();
+        selectedRating = 0;
+        updateStarSelection();
+    });
+
+
+    // --- Заказы ---
+    async function fetchOrders() {
+        try {
+            const res = await fetch(API_BASE + '/orders');
+            const orders = await res.json();
+            renderOrders(orders);
+        } catch (error) {
+            alert('Ошибка загрузки заказов: ' + error.message);
+        }
+    }
+
+    function renderOrders(orders) {
+        const container = document.getElementById('orders-list');
+        container.innerHTML = '';
+
+        orders.forEach(order => {
+            const div = document.createElement('div');
+            div.classList.add('order');
+            div.innerHTML = `
+                <h3>Заказ от: ${order.name}</h3>
+                <p>Телефон: ${order.phone}</p>
+                <p>Состав заказа:</p>
+                <ul>
+                    ${order.items.map(item => `<li>${item.name} (x${item.quantity})</li>`).join('')}
+                </ul>
+                <p><strong>Итого:</strong> ${order.total} руб.</p>
+                <button class="delete-btn" data-id="${order._id}">Удалить заказ</button>
+            `;
+            container.appendChild(div);
+        });
+
+        // Кнопки удаления заказов
+        container.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.id;
+                if (confirm('Удалить этот заказ?')) {
+                    await deleteOrder(id);
+                }
+            });
+        });
+    }
+
+    async function deleteOrder(id) {
+        try {
+            const res = await fetch(API_BASE + '/orders/' + id, { method: 'DELETE' });
+            if (!res.ok) throw new Error('Ошибка при удалении заказа');
+            await fetchOrders();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    // Инициализация данных при загрузке страницы
+    fetchReviews();
+    fetchOrders();
+</script>
+</body>
+</html>

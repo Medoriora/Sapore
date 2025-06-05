@@ -1,0 +1,818 @@
+
+      
+body{
+  background-color: #F7F7F7;
+  font-size: 20px;
+  font-weight: 300;
+
+    font-family: 'Montserrat Alternates', sans-serif; 
+} 
+
+
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 25px;
+}
+
+
+
+
+/* HEADER */
+
+.header-inner {
+    background-color: #191919;
+    width: 100%;
+    height: 100%;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 5px;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.header-link {
+    display: flex;
+    align-items: center;
+}
+
+
+.header-link a {
+    color: #fff;
+    margin-right: 85px;
+    text-decoration: none;
+
+    transition: color .3s ease;
+}
+
+.header-link a:hover {
+    color: #d4a373;
+}
+
+.header-link a:last-of-type {
+    margin-right: 0;
+}
+
+.button-korz {
+    
+    display: inline-block; /* Для корректной работы с размерами */
+    width: 35px;
+    height: 30px;
+}
+
+.button-korz img {
+    width: 100%; /* Подстраивается под контейнер */
+    height: 100%; /* Подстраивается под контейнер */
+    object-fit: contain; /* Сохраняет пропорции картинки */
+}
+
+.restmenu {
+    display: inline-block; /* Для корректной работы с размерами */
+    width: 30px;
+    height: 20px;
+    display: none;
+}
+
+.restmenu img {
+    width: 100%; /* Подстраивается под контейнер */
+    height: 100%; /* Подстраивается под контейнер */
+    object-fit: contain; /* Сохраняет пропорции картинки */
+}
+
+.button-header {
+    background-color: #d4a373;
+    padding: 9px 15px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid transparent;
+    transition: all .1s ease;
+}
+
+.button-header:hover {
+    background-color: #fff;
+    color: #d4a373;
+    border: 2px solid #d4a373;
+}
+
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        flex-direction: column;
+        padding-top: 30px;
+}
+
+.menu-button {
+    text-decoration: none !important;
+     background: #d4a373;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px 40px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.menu-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.menu-button:hover:before {
+    left: 100%;
+}
+
+.menu-button:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(212, 163, 115, 0.6);
+    border-color: rgba(212, 163, 115, 0.6);
+    background: #5f4934;
+    filter: brightness(1.1);
+}
+
+.menu-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(95, 73, 52, 0.5);
+    background: #5f4934;
+    border-color: rgba(95, 73, 52, 0.6);
+    transition: all 0.1s ease;
+}
+
+
+.menu-text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 24px;
+    height: 18px;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: #5f4934;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover .line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-button:hover .line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button:hover .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+:root {
+    --clip-position: 50% 50%;
+    --mask-position: 50% 50%;
+  }
+  body {
+     
+    /* Изображение всегда центрируется и фиксируется относительно окна */
+    background-size: cover; /* Изображение масштабируется, чтобы заполнить экран */
+    margin: 0; /* Убираем отступы браузера */
+    padding: 0; /* Убираем отступы */
+    height: 100vh; /* Высота 100% от окна */
+    width: 100%; /* Полная ширина */
+    overflow-x: hidden; /* Убираем горизонтальный скролл, если изображение выходит за границы */
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Растянуть на всю ширину экрана */
+    height: 100%; /* Растянуть на всю высоту экрана */
+}
+  h1 {
+    position: relative;
+    
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.875;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    cursor: default;
+  }
+    .fill2,
+    .mask2 {
+      font-size: 190px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+    }
+    
+    .fills {
+      /*display: none;*/
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  
+      .fill {
+        &.fill1,
+        &.fill3{
+          color: #E0E0E0;
+        }
+        &.fill2 {
+          color: rgb(0, 0, 0);
+        }
+      }
+    }
+    .macks {
+      clip-path: circle(400px at var(--clip-position));
+      -webkit-mask-image: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 66%);
+      -webkit-mask-size: 500px 500px;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: var(--mask-position);
+      
+      .mask {
+        display: block;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+  
+        &.mask1 {
+          background-image: url(https://image.winudf.com/v2/image/Y29tLlBSSVNTSS5XYWxscGFwZXIuYmFja2dyb3VuZC5CYWNrZ3JvdW5kR3JlZW5XYWxscGFwZXJfc2NyZWVuXzRfMTUyODIwNDE5MF8wNDU/screen-4.jpg?fakeurl=1&type=.jpg); 
+        }
+        &.mask2 {
+          background-color: #d4a373;
+        }
+        &.mask3 {
+          background-image: url(https://image.winudf.com/v2/image/Y29tLlBSSVNTSS5XYWxscGFwZXIuYmFja2dyb3VuZC5CYWNrZ3JvdW5kR3JlZW5XYWxscGFwZXJfc2NyZWVuXzRfMTUyODIwNDE5MF8wNDU/screen-4.jpg?fakeurl=1&type=.jpg); 
+        }
+      }
+    }
+  
+    @media only screen and (min-width: 1400px) {
+        h1 {
+          font-size: 225px;
+          width: 100rem;
+          
+          .fill2,
+          .mask2 {
+            font-size: 130px;
+          }
+          .macks {
+            clip-path: circle(800px at var(--clip-position));
+            -webkit-mask-size: 800px 800px;
+          }
+        }
+      }
+
+
+/* SEANS */
+
+.seans {
+    padding-bottom: 10px;
+}
+
+.seans-tite {
+    margin: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seans-tite p {
+    font-size: 42px;
+    font-weight: 800;
+    color: #000000;
+}
+
+.seans .contfood {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.food-list_card {
+    width: 269px;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем элементы по горизонтали */
+    justify-content: flex-start; /* Чтобы содержимое шло сверху вниз */
+}
+
+.food-list_card:hover {
+    transform: scale(1.05); /* Увеличиваем размер блока на 5% */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+}
+
+.food-list_image {
+    width: 100%; /* Ширина картинки будет 100% от родительского контейнера */
+    height: 205px; /* Высота картинки */
+    object-fit: cover; /* Изображение будет масштабироваться, сохраняя пропорции */
+    margin-bottom: 15px; /* Добавим небольшой отступ снизу */
+}
+
+.food-list_title {
+    padding: 6px;
+    font-size: 18px;
+    
+}
+
+.food-list_count1 {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-right: 207px;
+}
+
+.food-list_count2 {
+    font-size: 18px;
+    margin-top: 32px;
+    padding-left: 6px;
+    margin-right: 215px;
+}
+
+.food-list_count3 {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-right: 207px;
+}
+
+.food-list_count4 {
+    font-size: 18px;
+    margin-top: 30px;
+    padding-right: 207px;
+}
+
+.food-list_count5 {
+    font-size: 18px;
+    margin-top: 30px;
+    padding-right: 207px;
+}
+
+.food-list_desc1, .food-list_desc2, .food-list_desc3, .food-list_desc4, .food-list_desc5 {
+    padding-top: 1px;
+    padding-left: 6px;
+    font-size: 12px;
+    padding-bottom: 7px;
+}
+
+.color-bar {
+    height: 5px;
+    width: 55px;
+    margin: 6px;
+}
+
+.bar-1 { 
+    background-color: #d4a373;
+    margin-right: 207px; }
+.bar-2 { background-color: #d4a373; 
+    margin-right: 207px;}
+.bar-3 { background-color: #d4a373; 
+    margin-right: 207px;}
+.bar-4 { background-color: #d4a373; 
+    margin-right: 207px;}
+.bar-5 { background-color: #d4a373;
+    margin-right: 207px; }
+
+.food-list_weight, .food-list_kal, .food-list_weight1, .food-list_kal1, .food-list_weight2, .food-list_kal2 {
+    position: absolute;
+    margin-top: -3px;
+    background-color: #d4a373;
+    color: rgb(0, 0, 0);
+    border-radius: 60px;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.food-list_kal {
+    background-color: #ffffff;
+    border: 2px solid #d4a373;
+    width: 75px;
+    height: 31px;
+    margin-top: 282px;
+    margin-left: 45px;
+}
+
+.food-list_weight1, .food-list_kal1 {
+    margin-top: 283px;
+    margin-left: 185px;
+}
+
+.food-list_weight {
+    margin-top: 283px;
+    width: 60px;
+    height: 30px;
+    margin-left: 190px;
+}
+
+.food-list_weight1{
+    width: 60px;
+    height: 30px;
+}
+.food-list_weight2{
+    margin-top: 283px;
+    width: 60px;
+    height: 30px;
+    margin-left: 190px;
+}
+
+.food-list_kal2{
+    width: 75px;
+    height: 31px;
+    margin-top: 283px;
+    margin-left: 45px;
+    background-color: #ffffff;
+    border: 2px solid #d4a373;
+}
+
+.food-list_kal1 {
+    width: 75px;
+    height: 31px;
+    margin-top: 283px;
+    margin-left: 45px;
+    background-color: #ffffff;
+    border: 2px solid #d4a373;
+}
+
+
+ .contact-block {
+    margin-top: 20px;
+    margin-left: 22px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1425px; /* Ширина блока */
+    height: 500px; /* Высота блока */
+    background-color: #252525; /* Черный фон */
+    border-radius: 20px; /* Закругленные края */
+    padding: 20px;
+    color: #fff; /* Белый текст */
+    box-shadow: 0 4px 10px rgba(27, 27, 27, 0.3); /* Тень */
+}
+
+.map {
+    width: 50%; /* Половина ширины для карты */
+    height: 100%; /* Полная высота блока */
+    border-radius: 15px;
+    overflow: hidden; /* Убираем лишние части карты за границами */
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Убираем границу карты */
+}
+
+.contact-info {
+    width: 45%; /* Остальное место для текста */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px; /* Расстояние между элементами */
+}
+
+.contact-info div {
+    font-size: 18px;
+}
+
+.contact-info .label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-info .value {
+    font-size: 16px;
+    color: #ccc; /* Светло-серый цвет */
+}
+
+
+
+
+
+/* Медиазапрос для адаптации на устройствах шириной до 480px */
+@media (max-width: 480px) {
+    
+    main {
+        
+        height: 100%; /* Уменьшаем высоту блока */
+        width: 100%;
+        max-width: 100%;
+        background-size: contain; /* Делаем фон пропорциональным */
+        background-position: center top; /* Выравниваем по центру сверху */
+        
+    }
+
+    .button-header{
+        display: none;
+    }
+
+   /* Основной стиль меню */
+.restmenu {
+    position: relative;
+}
+
+/* Иконка бургера */
+.burger-icon img {
+    width: 40px; /* Размер иконки */
+    cursor: pointer;
+}
+
+/* Выдвижное меню */
+.burger-slide {
+    position: fixed; /* Закрепляет меню в окне */
+    top: 0;          /* Начало меню от верхней границы окна */
+    right: -100%;    /* Меню скрыто справа за экраном */
+    height: 350px;    /* Занимает всю высоту окна */
+    width: 300px;    /* Ширина меню */
+    background-color: rgba(248, 245, 240, 0.7); /* Цвет с прозрачностью (0.9 — 90% видимости) */
+    border-radius: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000; /* Размещает меню поверх других элементов */
+}
+
+
+.burger-slide .nib {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px; /* Добавляем внутренние отступы */
+    border-radius: 10px; /* Закругляем фон */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.burger-slide .nib:hover {
+    background-color: #d4a373; /* Цвет фона при наведении */
+    color: #ffffff; /* Цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение текста */
+}
+
+
+
+/* Ссылки внутри меню */
+.burger-slide a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Скрытое меню */
+.hidden {
+    right: -100%;
+}
+
+/* Показ меню */
+.visible {
+    right: 0;
+}
+
+
+    .restmenu{
+        margin-right: 20px;
+        margin-top: 20px;
+        display: block;
+        width: 35px;
+        height: 30px;
+    }
+
+    .button-korz{
+        display: none;
+    }
+
+    .imgheader {
+       
+        height: 70px; /* Уменьшаем высоту блока */
+        width: 80px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    .header-inner {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .button-korz {
+        margin-top: 3px;
+        width: 15px; /* Уменьшаем размеры контейнера */
+        height: 15px;
+    }
+
+    .header-link a {
+        display: none;
+    }
+
+    .button-header {
+        margin-right: 30px;
+        margin-top: 15px;
+        padding: 7px 15px; /* Уменьшаем кнопку */
+        font-size: 12px;
+    }
+
+    .header-inner:after {
+        display: none; /* Убираем линию на мобильных */
+    }
+
+    .main-inner {
+        padding-top: 0px; /* Уменьшаем отступы сверху */
+        text-align: center;
+    }
+
+    .main-inner p {
+        font-size: 44px; /* Уменьшаем размер текста */
+        text-align: center;
+    }
+
+    .main-title .highlight {
+        font-size: 2.5rem; /* Уменьшаем заголовок */
+    }
+
+    .main-title .subtitle {
+        font-size: 1.3rem; /* Уменьшаем подзаголовок */
+    }
+
+    .main-title:after,
+    .main-title:before {
+        display: none; /* Убираем линии под заголовком */
+    }
+
+    .main-inner a {
+        padding: 10px 20px; /* Уменьшаем размеры кнопки */
+        font-size: 14px;
+    }
+
+      /* Уменьшение текста в заголовке */
+  .seans-tite p {
+    font-size: 24px; /* Уменьшенный размер текста */
+    text-align: center; /* Центрирование текста */
+  }
+
+  /* Центрирование карточек */
+  .seans .contfood {
+    max-width: 480px;
+    justify-content: center; /* Центрирует карточки */
+    margin: 0 auto; /* Центрирует весь контейнер */
+  }
+
+  .food-list_card {
+    width: 90%; /* Карточки занимают 90% ширины экрана */
+    max-width: 300px; /* Ограничение максимальной ширины карточек */
+    margin-bottom: 15px; /* Отступ между карточками */
+  }
+
+  /* Уменьшение шрифтов внутри карточек */
+  .food-list_title {
+    font-size: 16px;
+  }
+
+  .food-list_count1 {
+    margin-top: 3px;
+    font-size: 14px;
+  }
+
+  .food-list_count2 {
+    margin-top: 3px;
+    font-size: 14px;
+  }
+
+  .food-list_count3 {
+    
+    margin-top: 3px;
+    font-size: 14px;
+
+  }
+  .food-list_count4 {
+    margin-top: 3px;
+    font-size: 14px;
+  }
+
+  .food-list_count5 {
+    margin-top: 3px;
+    font-size: 14px;
+  }
+
+  .food-list_desc1,
+  .food-list_desc2,
+  .food-list_desc3,
+  .food-list_desc4,
+  .food-list_desc5 {
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+
+  .food-list_weight,
+  .food-list_weight1,
+  .food-list_kal,
+  .food-list_kal1 {
+    width: 60px; /* Уменьшаем ширину */
+    height: 28px; /* Уменьшаем высоту */
+    font-size: 12px; /* Уменьшаем размер текста */
+  }
+
+  .food-list_weight1 {
+    margin-top: -3px;
+  }
+
+  .food-list_kal1{
+    margin-top: -3px;
+  }
+
+
+
+  
+  .contact-block {
+    justify-content: center; /* Центрирует карточки */
+    margin: 0 auto; /* Центрирует весь контейнер */
+    flex-direction: column; /* Располагаем элементы вертикально */
+    max-width: 100%;
+
+  }
+
+  .map {
+    width: 100%; /* Карта занимает всю ширину блока */
+    height: 180px; /* Высота карты */
+    margin-bottom: 15px; /* Отступ снизу */
+    border-radius: 10px; /* Закругленные углы */
+  }
+
+  .contact-info {
+    width: 100%; /* Контактная информация занимает всю ширину */
+    gap: 15px; /* Уменьшаем расстояние между элементами */
+  }
+
+  .contact-info div {
+    font-size: 12px; /* Уменьшаем размер шрифта */
+    text-align: center; /* Центрируем текст */
+  }
+
+  .contact-info .label {
+    font-size: 14px; /* Уменьшаем размер шрифта для заголовков */
+  }
+
+  .contact-info .value {
+    font-size: 12px; /* Уменьшаем размер шрифта для значений */
+    color: #aaa; /* Более светлый серый цвет */
+  }
+
+
+
+}
+
+
+

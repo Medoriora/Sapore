@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400&display=swap" rel="stylesheet">
+
+  <title>Меню</title>
+  <link rel="stylesheet" href="./assets/style/menu.css"> <!-- Подключите ваш CSS -->
+</head>
+<body>
+  <div class="conteiner">
+    <header>
+      <div class="header-inner">
+        <img src="./assets/logo1.png" width="70" height="70" alt="" class="imgheader">
+        <div class="header-link">
+          <a href="./index.html">Главная</a>
+          <a href="./menu.html">Меню</a>
+          <a href="./about.html">О нас</a>
+          <a href="./#">Отзывы</a>
+        </div>
+          <a class="button-korz" href="./cart.html"> <img src="./assets/corz.jpg" alt=""></a>
+
+          <div class="restmenu">
+            <a href="#" class="burger-icon">
+                <img src="./assets/Group1.png" alt="Меню">
+            </a>
+        
+            <div class="burger-slide hidden">
+                <a class="nib" href="./index.html">Главная</a>
+                <a class="nib" href="./menu.html">Меню</a>
+                <a class="nib" href="./about.html">О нас</a>
+                <a class="nib" href="./#">Отзывы</a>
+            </div>
+        </div>
+        <script src="./JavaScript/burgermenu.js"></script>
+      </div>
+    </header>
+  <main>
+    <div class="banner">
+      <div class="banner-content">
+        <img src="./assets/dum.png" alt="Food Image" class="banner-image" />
+        <div class="banner-text">
+          <h2>Не знаете, что заказать?</h2>
+          <p>Кликните на кнопку, и мы поможем вам выбрать блюдо!</p>
+          <button id="startQuiz" class="banner-button">Подобрать блюдо</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal" id="quizModal" style="display: none;">
+      <div class="modal-content" id="modalContent">
+        <span class="close" id="closeModal">&times;</span>
+        <div id="quiz">
+          <div class="question" id="question">Вопрос будет здесь</div>
+          <div class="options" id="options"></div>
+        </div>
+        <div id="result" class="result" style="display: none;"></div>
+      </div>
+    </div>
+
+    <div class="menu-link">
+      <a class="button-menu1" href="#zak">Закуски</a>
+      <a class="button-menu1" href="#soup">Супы</a>
+      <a class="button-menu1" href="#riz">Ризотто</a>
+      <a class="button-menu1" href="#pasta">Паста</a>
+      <a class="button-menu1" href="#piz">Пицца</a>
+      <a class="button-menu1" href="#des">Десерты</a>
+      <a class="button-menu1" href="#drug">Другое</a>
+    </div>
+
+    <div class="cont_zak" id="zak"><h2>Закуски</h2>
+    <div class="marquee-wrapper" style="user-select: none;">
+      <div class="marquee-content scrollingX">
+        <div class="card-testimonial" data-dish-id="1">
+          <article>
+            <picture>
+              <source media="(min-width: 768px)" srcset="./static/images/cap.png">
+              <img src="./static/images/cap.png" alt="">
+            </picture>
+            <h4>Капрезе с моцареллой и томатами</h4>
+            <article class="short-description">
+              <h5>380 руб</h5> 
+              <div class="color-bar bar-6"></div>  
+              <p>Помидоры, моцарелла, базилик, оливковое масло, бальзамический уксус, соль, перец</p>
+            </article>
+          </article>
+        </div>
+
+        <div class="card-testimonial" data-dish-id="2">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/brusktombas.png">
+            <img src="./static/images/brusktombas.png" alt="">
+          </picture>
+          <h4>Брускетта с томатами и базиликом</h4>
+          <article class="short-description">
+            <h5>340 руб</h5> 
+            <div class="color-bar bar-6"></div>   
+            <p>Багет, помидоры, базилик, чеснок, оливковое масло, соль, перец</p>
+          </article>
+        </article>
+      </div>
+
+      <div class="card-testimonial" data-dish-id="3">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/carptel.png">
+            <img src="./static/images/carptel.png" alt="">
+          </picture>
+          <h4>Карпаччо из телятины c рукколой</h4>
+          <article class="short-description">
+            <h5>620 руб</h5> 
+            <div class="color-bar bar-6"></div>   
+            <p>Телятина, пармезан, лимонный сок, оливковое масло, руккола, соль, перец</p>
+          </article>
+        </article>
+      </div>
+      
+      <div class="card-testimonial" data-dish-id="4">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/shariki.png">
+          <img src="./static/images/shariki.png" alt="">
+        </picture>
+        <h4>Ризотто-шарики с пармезаном</h4>
+        <article class="short-description">
+          <h5>430 руб</h5>   
+          <div class="color-bar bar-6"></div> 
+          <p>Рис, шампиньоны, пармезан, панировочные сухари, сливочное масло, яйца</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="5">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/tartar.png">
+        <img src="./static/images/tartar.png" alt="">
+      </picture>
+      <h4>Тартар из авокадо с креветками</h4>
+      <article class="short-description">
+        <h5>560 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Авокадо, креветки, лимонный сок, красный лук, соль, перец, оливковое масло</p>
+        
+          </article>
+        </article>
+      </div>
+      <div class="card-testimonial" data-dish-id="6">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/panini.png">
+          <img src="./static/images/panini.png" alt="">
+        </picture>
+        <h4>Панини с беконом и моцареллой</h4>
+        <article class="short-description">
+          <h5>490 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Панини, бекон, моцарелла, помидоры, соус песто</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="7">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/bruskgrib.png">
+        <img src="./static/images/bruskgrib.png" alt="">
+      </picture>
+      <h4>Брускетта с грибами и пармезаном</h4>
+      <article class="short-description">
+        <h5>410 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Багет, шампиньоны, пармезан, чеснок, оливковое масло, соль, перец</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="8">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/salkrev.png">
+        <img src="./static/images/salkrev.png" alt="">
+      </picture>
+      <h4>Салат из креветок и авокадо</h4>
+      <article class="short-description">
+        <h5>570 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Креветки, авокадо, лимонный сок, руккола, оливковое масло</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="9">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/antipasti.png">
+        <img src="./static/images/antipasti.png" alt="">
+      </picture>
+      <h4>Антипасти с пармезаном</h4>
+      <article class="short-description">
+        <h5>480 руб</h5> 
+        <div class="color-bar bar-6"></div>   
+        <p>Пармезан, вяленые томаты, оливки, базилик, оливковое масло</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="10">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/fritto.png">
+        <img src="./static/images/fritto.png" alt="">
+      </picture>
+      <h4>Фритто с креветками и лимоном</h4>
+      <article class="short-description">
+        <h5>590 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Креветки, лимон, панировочные сухари, растительное масло</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="11">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/bruskbacon.png">
+        <img src="./static/images/bruskbacon.png" alt="">
+      </picture>
+      <h4>Брускетта с беконом и помидорами</h4>
+      <article class="short-description">
+        <h5>420 руб</h5>  
+        <div class="color-bar bar-6"></div>  
+        <p>Багет, бекон, помидоры, базилик, соус песто</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="12">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/minikes.png">
+        <img src="./static/images/minikes.png" alt="">
+      </picture>
+      <h4>Мини-кесадильи с моцареллой</h4>
+      <article class="short-description">
+        <h5>510 руб</h5>
+        <div class="color-bar bar-6"></div>    
+        <p>Тортилья, моцарелла, бекон, томаты, соус сальса</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="13">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/salatcapr.png">
+        <img src="./static/images/salatcapr.png" alt="">
+      </picture>
+      <h4>Салат Капрезе с авокадо</h4>
+      <article class="short-description">
+        <h5>460 руб</h5> 
+        <div class="color-bar bar-6"></div>   
+        <p>Помидоры, авокадо, моцарелла, базилик, оливковое масло</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="14">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/ovoshsalat.png">
+        <img src="./static/images/ovoshsalat.png" alt="">
+      </picture>
+      <h4>Овощной салат с шампиньонами</h4>
+      <article class="short-description">
+        <h5>390 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Шампиньоны, руккола, помидоры, лимон, оливковое масло</p>
+        
+      </article>
+    </article>
+    </div>
+    <div class="card-testimonial" data-dish-id="15">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/carpgrib.png">
+        <img src="./static/images/carpgrib.png" alt="">
+      </picture>
+      <h4>Карпаччо из шампиньонов с лимоном</h4>
+      <article class="short-description">
+        <h5>370 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Шампиньоны, лимонный сок, базилик, оливковое масло, соль, перец</p>
+        
+      </article>
+    </article>
+    </div>
+  </div> 
+</div>
+
+
+<div class="cont_soup" id="soup"><h2>Супы</h2>
+  <div class="marquee-wrapper1" style="user-select: none;">
+    <div class="marquee-content1 scrollingX">
+      <div class="card-testimonial">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/minestr.png">
+            <img src="./static/images/minestr.png" alt="">
+          </picture>
+          <h4>Суп Минестроне</h4>
+          <article class="short-description">
+            <h5>420 руб</h5> 
+            <div class="color-bar bar-6"></div>  
+            <p>Овощи, томатный соус, паста, зелень</p>
+            
+          </article>
+        </article>
+        
+      </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/soupgrib.png">
+          <img src="./static/images/soupgrib.png" alt="">
+        </picture>
+        <h4>Крем-суп с грибами</h4>
+        <article class="short-description">
+          <h5>460 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Шампиньоны, сливки, картофель, лук, чеснок</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/soupmor.png">
+          <img src="./static/images/soupmor.png" alt="">
+        </picture>
+        <h4>Суп с морепродуктами</h4>
+        <article class="short-description">
+          <h5>520 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Морепродукты, томаты, чеснок, петрушка, бульон</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/souplos.png">
+        <img src="./static/images/souplos.png" alt="">
+      </picture>
+      <h4>Суп с рисом и лососем</h4>
+      <article class="short-description">
+        <h5>540 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Лосось, рис, сливки, зелень, специи</p>
+        
+      </article>
+    </article>
+    </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/soupbacon.png">
+          <img src="./static/images/soupbacon.png" alt="">
+        </picture>
+        <h4>Суп с беконом и грибами</h4>
+        <article class="short-description">
+          <h5>490 руб</h5>   
+          <div class="color-bar bar-6"></div> 
+          <p>Бекон, шампиньоны, сливки, картофель, зелень</p>
+        </article>
+      </article>
+      </div>     
+</div>
+</div>
+<div class="cont_riz" id="riz"><h2>Ризотто</h2>
+  <div class="marquee-wrapper2" style="user-select: none;">
+    <div class="marquee-content2 scrollingX">
+      <div class="card-testimonial">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/rizgrib.png">
+            <img src="./static/images/rizgrib.png" alt="">
+          </picture>
+          <h4>Сливочный ризотто с грибами</h4>
+          <article class="short-description">
+            <h5>590 руб</h5> 
+            <div class="color-bar bar-6"></div>  
+            <p>Рис, шампиньоны, лук, сливки, пармезан</p>
+            
+          </article>
+        </article>
+  
+      </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/rizmor.png">
+          <img src="./static/images/rizmor.png" alt="">
+        </picture>
+        <h4>Ризотто с морепродуктами</h4>
+        <article class="short-description">
+          <h5>670 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Рис, морепродукты, чеснок, белое вино, пармезан</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/rizbacon.png">
+          <img src="./static/images/rizbacon.png" alt="">
+        </picture>
+        <h4>Ризотто с томатным соусом и беконом</h4>
+        <article class="short-description">
+          <h5>580 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Рис, томатный соус, бекон, чеснок, зелень</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/risparm.png">
+        <img src="./static/images/risparm.png" alt="">
+      </picture>
+      <h4>Сливочный ризотто с пармезаном</h4>
+      <article class="short-description">
+        <h5>560 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Рис, пармезан, сливки, мускатный орех, масло</p>
+        
+      </article>
+    </article>
+    </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/rizlos.png">
+          <img src="./static/images/rizlos.png" alt="">
+        </picture>
+        <h4>Сливочный ризотто с лососем</h4>
+        <article class="short-description">
+          <h5>640 руб</h5>   
+          <div class="color-bar bar-6"></div> 
+          <p>Рис, лосось, сливки, зелень, лимон</p>
+        </article>
+      </article>
+      </div> 
+</div>
+</div>
+
+
+<div class="cont_pasta" id="pasta"><h2>Паста</h2>
+  <div class="marquee-wrapper3" style="user-select: none;">
+    <div class="marquee-content3 scrollingX">
+      <div class="card-testimonial">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/karbonar.png">
+            <img src="./static/images/karbonar.png" alt="">
+          </picture>
+          <h4>Спагетти Карбонара</h4>
+          <article class="short-description">
+            <h5>610 руб</h5> 
+            <div class="color-bar bar-6"></div>  
+            <p>Спагетти, бекон, сливки, яйцо, пармезан, перец</p>
+            
+          </article>
+        </article>
+  
+      </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/toliatlos.png">
+          <img src="./static/images/toliatlos.png" alt="">
+        </picture>
+        <h4>Тальятелле с лососем</h4>
+        <article class="short-description">
+          <h5>670 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Тальятелле, лосось, сливки, пармезан, лимон, зелень</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/pastamor.png">
+          <img src="./static/images/pastamor.png" alt="">
+        </picture>
+        <h4>Паста с морепродуктами</h4>
+        <article class="short-description">
+          <h5>720 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Спагетти, морепродукты, томатный соус, чеснок, петрушка</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/toliatelsgrib.png">
+        <img src="./static/images/toliatelsgrib.png" alt="">
+      </picture>
+      <h4>Тальятелле с грибами</h4>
+      <article class="short-description">
+        <h5>590 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Тальятелле, шампиньоны, сливки, пармезан, чеснок</p>
+        
+      </article>
+    </article>
+    </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/pastatomsous.png">
+          <img src="./static/images/pastatomsous.png" alt="">
+        </picture>
+        <h4>Паста с томатным соусом и пармезаном</h4>
+        <article class="short-description">
+          <h5>520 руб</h5>   
+          <div class="color-bar bar-6"></div> 
+          <p>Спагетти, томатный соус, пармезан, базилик</p>
+        </article>
+      </article>
+      </div> 
+</div>
+</div>
+
+
+<div class="cont_soup" id="piz"><h2>Пицца</h2>
+  <div class="marquee-wrapper4" style="user-select: none;">
+    <div class="marquee-content4 scrollingX">
+      <div class="card-testimonial">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/pizzmarg.png">
+            <img src="./static/images/pizzmarg.png" alt="">
+          </picture>
+          <h4>Пицца Маргарита</h4>
+          <article class="short-description">
+            <h5>590 руб</h5> 
+            <div class="color-bar bar-6"></div>  
+            <p>Тесто, томатный соус, моцарелла, базилик</p>
+            
+          </article>
+        </article>
+        
+      </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/pizzbacon.png">
+          <img src="./static/images/pizzbacon.png" alt="">
+        </picture>
+        <h4>Пицца с беконом</h4>
+        <article class="short-description">
+          <h5>650 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Тесто, бекон, шампиньоны, сыр, соус</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/pizzmor.png">
+          <img src="./static/images/pizzmor.png" alt="">
+        </picture>
+        <h4>Пицца с морепродуктами</h4>
+        <article class="short-description">
+          <h5>720 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Тесто, морепродукты, соус, сыр, зелень</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/pizzlos.png">
+        <img src="./static/images/pizzlos.png" alt="">
+      </picture>
+      <h4>Пицца с лососем и сыром</h4>
+      <article class="short-description">
+        <h5>710 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Тесто, лосось, сливочный сыр, каперсы, зелень</p>
+        
+      </article>
+    </article>
+    </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/4sir.png">
+          <img src="./static/images/4sir.png" alt="">
+        </picture>
+        <h4>Пицца 4 сыра</h4>
+        <article class="short-description">
+          <h5>680 руб</h5>   
+          <div class="color-bar bar-6"></div> 
+          <p>Тесто, пармезан, горгонзола, моцарелла, сливочный сыр</p>
+        </article>
+      </article>
+      </div>     
+</div>
+</div>
+
+
+<div class="cont_des" id="des"><h2>Десерты</h2>
+  <div class="marquee-wrapper5" style="user-select: none;">
+    <div class="marquee-content5 scrollingX">
+      <div class="card-testimonial">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/tiramis.png">
+            <img src="./static/images/tiramis.png" alt="">
+          </picture>
+          <h4>Тирамису классический</h4>
+          <article class="short-description">
+            <h5>520 руб</h5> 
+            <div class="color-bar bar-6"></div>  
+            <p>Маскарпоне, печенье савоярди, кофе, яйца, сахар, какао-порошок</p>
+            
+          </article>
+        </article>
+        
+      </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/kanolcrem.png">
+          <img src="./static/images/kanolcrem.png" alt="">
+        </picture>
+        <h4>Канноли с кремом из маскарпоне</h4>
+        <article class="short-description">
+          <h5>480 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Тесто для канноли, маскарпоне, сахарная пудра, ваниль, шоколадная крошка</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/fondan.png">
+          <img src="./static/images/fondan.png" alt="">
+        </picture>
+        <h4>Шоколадный фондан с ванильным соусом</h4>
+        <article class="short-description">
+          <h5>590 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Шоколад, сливочное масло, яйца, сахар, мука, ванильный соус</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/yagmus.png">
+        <img src="./static/images/yagmus.png" alt="">
+      </picture>
+      <h4>Ягодный мусс с миндальной крошкой</h4>
+      <article class="short-description">
+        <h5>430 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Ягоды (малина, клубника), сливки, сахар, миндальная крошка, желатин</p>
+        
+      </article>
+    </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/panacot.png">
+      <img src="./static/images/panacot.png" alt="">
+    </picture>
+    <h4>Кофейная панна-котта</h4>
+    <article class="short-description">
+      <h5>510 руб</h5>   
+      <div class="color-bar bar-6"></div> 
+      <p>Сливки, кофе, сахар, желатин, ваниль</p>
+      
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/mindal.png">
+        <img src="./static/images/mindal.png" alt="">
+      </picture>
+      <h4>Миндальный торт с кремом маскарпоне</h4>
+      <article class="short-description">
+        <h5>680 руб</h5> 
+        <div class="color-bar bar-6"></div>   
+        <p>Миндальная мука, яйца, сахар, сливочное масло, маскарпоне, ваниль</p>
+        
+      </article>
+    </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/tiryag.png">
+      <img src="./static/images/tiryag.png" alt="">
+    </picture>
+    <h4>Ягодное тирамису</h4>
+    <article class="short-description">
+      <h5>540 руб</h5>   
+      <div class="color-bar bar-6"></div> 
+      <p>Маскарпоне, печенье савоярди, ягоды, сахар, сливки, ваниль</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/shoktryf.png">
+      <img src="./static/images/shoktryf.png" alt="">
+    </picture>
+    <h4>Шоколадно-миндальные трюфели</h4>
+    <article class="short-description">
+      <h5>460 руб</h5>   
+      <div class="color-bar bar-6"></div> 
+      <p>Шоколад, сливки, какао-порошок, измельченный миндаль</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/kanolyag.png">
+      <img src="./static/images/kanolyag.png" alt="">
+    </picture>
+    <h4>Канноли с ягодным кремом</h4>
+    <article class="short-description">
+      <h5>520 руб</h5> 
+      <div class="color-bar bar-6"></div>   
+      <p>Тесто для канноли, ягоды, сливки, сахар, ваниль</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/panett.png">
+      <img src="./static/images/panett.png" alt="">
+    </picture>
+    <h4>Панеттоне с ванильным кремом</h4>
+    <article class="short-description">
+      <h5>570 руб</h5>   
+      <div class="color-bar bar-6"></div> 
+      <p>Панеттоне, ванильный крем, сахарная пудра, сливки</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/ruletshoc.png">
+      <img src="./static/imagesruletshoc.png" alt="">
+    </picture>
+    <h4>Шоколадный рулет с кофейным кремом</h4>
+    <article class="short-description">
+      <h5>610 руб</h5>  
+      <div class="color-bar bar-6"></div>  
+      <p>Шоколадный бисквит, кофейный крем, сливки, сахар, ваниль</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/sorbet.png">
+      <img src="./static/images/sorbet.png" alt="">
+    </picture>
+    <h4>Ягодный сорбет</h4>
+    <article class="short-description">
+      <h5>420 руб</h5>
+      <div class="color-bar bar-6"></div>    
+      <p>Ягоды, сахар, сливки, мята</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/coffeemor.png">
+      <img src="./static/images/coffeemor.png" alt="">
+    </picture>
+    <h4>Кофейное мороженое с миндальной крошкой</h4>
+    <article class="short-description">
+      <h5>460 руб</h5> 
+      <div class="color-bar bar-6"></div>   
+      <p>Сливки, кофе, сахар, миндальная крошка, ваниль</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/shoctort.png">
+      <img src="./static/images/shoctort.png" alt="">
+    </picture>
+    <h4>Шоколадный торт с панеттоне</h4>
+    <article class="short-description">
+      <h5>650 руб</h5>   
+      <div class="color-bar bar-6"></div> 
+      <p>Панеттоне, шоколадный крем, сливки, ваниль</p>
+      
+    </article>
+  </article>
+  </div>
+  <div class="card-testimonial">
+  <article>
+    <picture>
+      <source media="(min-width: 768px)" srcset="./static/images/tart.png">
+      <img src="./static/images/tart.png" alt="">
+    </picture>
+    <h4>Тарт с ягодами и ванильным кремом</h4>
+    <article class="short-description">
+      <h5>490 руб</h5>   
+      <div class="color-bar bar-6"></div> 
+      <p>Песочное тесто, ягоды, ванильный крем, сахар, мята</p>
+      
+    </article>
+  </article>
+  </div>
+</div> 
+</div>
+
+<div class="cont_drug" id="drug"><h2>Другое</h2>
+  <div class="marquee-wrapper6" style="user-select: none;">
+    <div class="marquee-content6 scrollingX">
+      <div class="card-testimonial">
+        <article>
+          <picture>
+            <source media="(min-width: 768px)" srcset="./static/images/tomsparmez.png">
+            <img src="./static/images/tomsparmez.png" alt="">
+          </picture>
+          <h4>Томаты, запеченные с пармезаном</h4>
+          <article class="short-description">
+            <h5>440 руб</h5> 
+            <div class="color-bar bar-6"></div>  
+            <p>Помидоры, пармезан, зелень, чеснок, оливковое масло</p>
+            
+          </article>
+        </article>
+        
+      </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/omlet.png">
+          <img src="./static/images/omlet.png" alt="">
+        </picture>
+        <h4>Омлет с грибами и сыром</h4>
+        <article class="short-description">
+          <h5>470 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Яйца, шампиньоны, пармезан, молоко, зелень</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/kotllos.png">
+          <img src="./static/images/kotllos.png" alt="">
+        </picture>
+        <h4>Котлеты из лосося</h4>
+        <article class="short-description">
+          <h5>620 руб</h5> 
+          <div class="color-bar bar-6"></div>   
+          <p>Лосось, рис, лук, яйцо, зелень, соус тартар</p>
+          
+        </article>
+      </article>
+    </div>
+    <div class="card-testimonial">
+    <article>
+      <picture>
+        <source media="(min-width: 768px)" srcset="./static/images/fritata.png">
+        <img src="./static/images/fritata.png" alt="">
+      </picture>
+      <h4>Фриттата с беконом и сыром</h4>
+      <article class="short-description">
+        <h5>490 руб</h5>   
+        <div class="color-bar bar-6"></div> 
+        <p>Яйца, бекон, пармезан, зелень, специи</p>
+        
+      </article>
+    </article>
+    </div>
+      <div class="card-testimonial">
+      <article>
+        <picture>
+          <source media="(min-width: 768px)" srcset="./static/images/lasania.png">
+          <img src="./static/images/lasania.png" alt="">
+        </picture>
+        <h4>Лазанья с мясом и грибами</h4>
+        <article class="short-description">
+          <h5>680 руб</h5>   
+          <div class="color-bar bar-6"></div> 
+          <p>Тесто, мясной фарш, шампиньоны, соус бешамель, пармезан</p>
+        </article>
+      </article>
+      </div>     
+</div>
+</div>
+
+    <script src="./JavaScript/carusel.js" defer></script>
+    <script src="./JavaScript/carusel1.js" defer></script>
+    <script src="./JavaScript/carusel2.js" defer></script>
+    <script src="./JavaScript/carusel3.js" defer></script>
+    <script src="./JavaScript/carusel4.js" defer></script>
+    <script src="./JavaScript/carusel5.js" defer></script>
+    <script src="./JavaScript/carusel6.js" defer></script>
+  </div>
+
+
+  <div id="productModal" class="product-modal">
+    <div class="product-modal-content">
+      <span class="product-close-btn">&times;</span>
+      <div class="product-modal-body">
+        <!-- Секция с изображением -->
+        <div class="product-modal-image">
+          <img id="productModalImg" src="" alt="Фото товара">
+        </div>
+        <!-- Секция с информацией -->
+        <div class="product-modal-info">
+          <h2 id="productModalTitle"></h2>
+          <p id="productModalDescription"></p>
+          <h3 id="productModalPrice"></h3>
+          <h3 id="productModalWeight"></h3>
+          <!-- Таблица КБЖУ -->
+          <table id="productModalKbjuTable" class="kbju-table">
+            <thead>
+              <tr>
+                <th>Б</th>
+                <th>Ж</th>
+                <th>У</th>
+                <th>К</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="productModalProtein">0</td>
+                <td id="productModalFat">0</td>
+                <td id="productModalCarbs">0</td>
+                <td id="productModalCalories">0</td>
+              </tr>
+            </tbody>
+          </table>
+          <button id="productAddToCartBtn">Добавить в корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  </main>
+  <footer>
+    <p>© 2025 Sapore</p>
+  </footer>
+
+  <button id="scrollToTop" class="scroll-top-btn" aria-label="Прокрутить наверх">
+    ↑
+  </button>
+  <script src="./JavaScript/data.js"></script>
+<script src="./JavaScript/a.js"></script>
+
+
+  <script src="./JavaScript/but.js"></script>
+  
+
+</body>
+</html>
