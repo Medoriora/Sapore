@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 // Подключение к MongoDB
-mongoose.connect('mongodb://localhost:27017/restaurant-reviews', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
