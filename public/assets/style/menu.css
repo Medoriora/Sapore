@@ -98,31 +98,47 @@ body{
     border: 2px solid #d4a373;
 }
 
-.menu-link{
-  display: flex;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  justify-content: center;
-  font-size: 30px;
-
+.menu-link {
+    display: flex;
+    flex-wrap: wrap; /* Перенос строк при нехватке места */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+    gap: 10px; /* Расстояние между элементами */
+    font-size: 28px; /* Уменьшенный шрифт */
 }
 
 .menu-link a {
-  color: #000000;
-  margin-right: 65px;
-  text-decoration: none;
-
-  transition: color .3s ease;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 15px; /* Добавляем внутренние отступы для удобства клика */
+    border-radius: 5px; /* Закругленные края */
+    background-color: #f9f9f9; /* Легкий фон */
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .menu-link a:hover {
-  color: #d4a373;
+    color: #d4a373;
+    background-color: #eee; /* Легкое выделение фона при наведении */
 }
 
 .menu-link a:last-of-type {
-  margin-right: 0;
+    margin-right: 0;
 }
 
+@media (max-width: 768px) {
+    .menu-link {
+        flex-direction: column; /* Размещаем ссылки в колонку */
+        align-items: center; /* Центрируем ссылки */
+        font-size: 16px; /* Еще меньше шрифт для маленьких экранов */
+    }
+
+    .menu-link a {
+        width: 80%; /* Занимают 80% ширины экрана */
+        text-align: center; /* Текст по центру */
+        padding: 8px 10px; /* Уменьшенные отступы */
+    }
+}
 .cont_zak h2 {
   padding-left: 10px;
   margin-top: 20px;
@@ -1063,14 +1079,339 @@ body{
 
 /* Адаптив: на телефонах блюда в колонку */
 @media (max-width: 768px) {
-  .result-dishes {
+      main {
+        
+        height: 100%; /* Уменьшаем высоту блока */
+        width: 100%;
+        max-width: 100%;
+        background-size: contain; /* Делаем фон пропорциональным */
+        background-position: center top; /* Выравниваем по центру сверху */
+        
+    }
+
+    .button-header{
+        display: none;
+    }
+
+   /* Основной стиль меню */
+.restmenu {
+    position: relative;
+}
+
+/* Иконка бургера */
+.burger-icon img {
+    width: 40px; /* Размер иконки */
+    cursor: pointer;
+}
+
+/* Выдвижное меню */
+.burger-slide {
+    position: fixed; /* Закрепляет меню в окне */
+    top: 0;          /* Начало меню от верхней границы окна */
+    right: -100%;    /* Меню скрыто справа за экраном */
+    height: 370px;    /* Занимает всю высоту окна */
+    width: 300px;    /* Ширина меню */
+    background-color: hsl(30, 53%, 64%); /* Цвет с прозрачностью (0.9 — 90% видимости) */
+    border-radius: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
     flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: visible;
-    align-items: center;
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000; /* Размещает меню поверх других элементов */
+}
+
+
+.burger-slide .nib {
+    color: #333;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 10px 0;
+    padding: 10px; /* Добавляем внутренние отступы */
+    border-radius: 10px; /* Закругляем фон */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.burger-slide .nib:hover {
+    background-color: #d4a373; /* Цвет фона при наведении */
+    color: #ffffff; /* Цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение текста */
+}
+
+
+
+/* Ссылки внутри меню */
+.burger-slide a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Скрытое меню */
+.hidden {
+    right: -100%;
+}
+
+/* Показ меню */
+.visible {
+    right: 0;
+}
+
+
+    .restmenu{
+        margin-right: 20px;
+        margin-top: 20px;
+        display: block;
+        width: 35px;
+        height: 30px;
+    }
+
+    .button-korz{
+        display: none;
+    }
+
+    .imgheader {
+       
+        height: 70px; /* Уменьшаем высоту блока */
+        width: 80px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    .header-inner {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .button-korz {
+        margin-top: 3px;
+        width: 15px; /* Уменьшаем размеры контейнера */
+        height: 15px;
+    }
+
+    .header-link a {
+        display: none;
+    }
+
+    .button-header {
+        margin-right: 30px;
+        margin-top: 15px;
+        padding: 7px 15px; /* Уменьшаем кнопку */
+        font-size: 12px;
+    }
+
+    .header-inner:after {
+        display: none; /* Убираем линию на мобильных */
+    }
+
+    .main-inner {
+        padding-top: 0px; /* Уменьшаем отступы сверху */
+        text-align: center;
+    }
+
+    .main-inner p {
+        font-size: 44px; /* Уменьшаем размер текста */
+        text-align: center;
+    }
+
+    .main-title .highlight {
+        font-size: 2.5rem; /* Уменьшаем заголовок */
+    }
+
+    .main-title .subtitle {
+        font-size: 1.3rem; /* Уменьшаем подзаголовок */
+    }
+
+    .main-title:after,
+    .main-title:before {
+        display: none; /* Убираем линии под заголовком */
+    }
+
+    .main-inner a {
+        padding: 10px 20px; /* Уменьшаем размеры кнопки */
+        font-size: 14px;
+    }
+
+      .modal-content {
+    width: 95%; /* Занимает почти всю ширину экрана */
+    max-width: none; /* Снимаем ограничение ширины */
+    padding: 15px; /* Уменьшаем отступы */
+    border-radius: 8px; /* Оставляем мягкие углы */
+  }
+
+  .question {
+    font-size: 16px; /* Уменьшаем размер текста */
+    margin-bottom: 15px; /* Уменьшаем отступ снизу */
+  }
+
+  .options {
+    gap: 8px; /* Уменьшаем расстояние между кнопками */
+  }
+
+  .options button {
+    font-size: 16px; /* Уменьшаем размер текста кнопок */
+    padding: 8px;
+    width: 140px; /* Уменьшаем ширину кнопок */
+  }
+
+  .result {
+    flex-direction: row; /* Смена на вертикальный вывод */
+    gap: 10px; /* Уменьшаем промежуток */
+    max-height: 60vh; /* Ограничение высоты */
+    overflow-y: auto; /* Добавляем прокрутку, если нужно */
   }
 
   .dish-card {
+    
+    max-width: 90%; /* Снимаем ограничение ширины */
+    margin: 0 auto; /* Центрируем карточки */
+  }
+
+  .result-carousel {
+    display: flex;
+    flex-direction: row; /* Сохраняем горизонтальную прокрутку */
+    gap: 10px;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    scroll-behavior: smooth;
+    padding: 5px;
+  }
+
+  .result-carousel::-webkit-scrollbar {
+    display: none; /* Убираем скроллбар для лучшего вида */
+  }
+
+
+    .menu-link {
+        flex-wrap: wrap; /* Разделяем на строки при нехватке места */
+        gap: 10px;
+    }
+
+    .button-menu1 {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        padding: 8px 10px;
+    }
+    
+    .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
     width: 90%;
+}
+.banner-image {
+    width: 55%;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+.banner-text h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px;
+}
+.banner-text p {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 20px;
+}
+.banner-button {
+    
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.marquee-wrapper1 {
+    overflow: hidden; /* Убедитесь, что элементы не выходят за границы */
+    display: flex;
+    scroll-behavior: smooth; /* Плавный скролл */
+    gap: 10px; /* Расстояние между элементами */
+    width: 100%;
+}
+
+.marquee-content1 {
+    display: flex;
+    flex-shrink: 0; /* Убедитесь, что элементы не сжимаются */
+    gap: 10px;
+}
+
+.card-testimonial {
+    min-width: 200px; /* Минимальная ширина карточки */
+    max-width: 350px;
+    flex-shrink: 0; /* Убедитесь, что карточки не сжимаются */
+}
+.product-modal-content {
+    width: 95%; /* Почти вся ширина экрана */
+    max-width: none; /* Убираем ограничение ширины */
+    max-height: 90%; /* Ограничиваем высоту */
+    padding: 15px; /* Уменьшаем отступы */
+    overflow-y: auto; /* Включаем прокрутку для длинного содержимого */
+    border-radius: 8px;
+  }
+
+  .product-modal-body {
+    flex-direction: column; /* Располагаем элементы вертикально */
+    gap: 15px; /* Уменьшаем промежуток между секциями */
+    align-items: center; /* Центрируем содержимое */
+  }
+
+  .product-modal-image img {
+    width: 100%; /* Картинка занимает всю ширину */
+    max-width: 340px; /* Ограничиваем максимальную ширину */
+    height: auto; /* Сохраняем пропорции */
+    margin-bottom: 5px; /* Добавляем отступ снизу */
+  }
+
+  .product-modal-info {
+    text-align: center; /* Выравниваем текст по центру */
+  }
+
+  .cont_zak h2 {
+    margin-top: 0px;
+  }
+  
+.cont_zak h3 {
+    padding-bottom: 5px;}
+
+  .product-modal-info h2 {
+    font-size: 24px; /* Уменьшаем размер заголовка */
+    margin-bottom: 15px;
+  }
+
+  .product-modal-info h3 {
+    font-size: 20px; /* Уменьшаем размер текста */
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .product-modal-info p {
+    font-size: 16px; /* Уменьшаем размер текста */
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .kbju-table {
+    font-size: 16px; /* Уменьшаем шрифт таблицы */
+    margin-top: 10px; /* Уменьшаем отступ сверху */
+  }
+
+  .kbju-table th, .kbju-table td {
+    padding: 6px; /* Уменьшаем внутренние отступы */
+  }
+
+  #productAddToCartBtn {
+    font-size: 20px; /* Уменьшаем размер текста кнопки */
+    padding: 6px 8px; /* Уменьшаем внутренние отступы */
+    border-radius: 15px; /* Уменьшаем радиус */
+    margin-top: 10px; /* Уменьшаем отступ сверху */
+  }
+
+  .product-close-btn {
+    font-size: 18px; /* Уменьшаем размер кнопки закрытия */
   }
 }

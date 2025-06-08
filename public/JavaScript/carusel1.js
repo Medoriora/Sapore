@@ -1,22 +1,33 @@
 "use strict";
-const parentMarquee1 = document.querySelector(".marquee-wrapper1");
-const childMarquee1 = document.querySelector(".marquee-content1");
-// will clone the child node of Parent Marquee or copy the sibling 
-
-// code below will allow a draggable feature for the marquee carousel 
 const ulParentListContainer1 = document.querySelector('.marquee-wrapper1');
-let isDragging1 = false;
+let isDragging1 = false, startX, scrollLeft;
+
+// Начало перетаскивания
 const dragStart1 = (e) => {
-    if (!isDragging1)
-        return;
-    ulParentListContainer1.scrollLeft -= e.movementX;
+    isDragging1 = true;
+    startX = e.pageX || e.touches[0].pageX; // Для мобильных устройств используем touches
+    scrollLeft = ulParentListContainer1.scrollLeft;
 };
+
+// Перетаскивание
+const dragMove1 = (e) => {
+    if (!isDragging1) return;
+    const x = e.pageX || e.touches[0].pageX; // Для мобильных устройств используем touches
+    const walk = (startX - x) * 2; // Увеличиваем чувствительность
+    ulParentListContainer1.scrollLeft = scrollLeft + walk;
+};
+
+// Завершение перетаскивания
 const stopDragging1 = () => {
     isDragging1 = false;
 };
-// when mouse is pressed 
-ulParentListContainer1.addEventListener('mousedown', () => isDragging1 = true);
-// when mouse is move to left
-ulParentListContainer1.addEventListener('mousemove', dragStart1);
-// when mouse pressed is released
+
+// Добавляем обработчики событий
+ulParentListContainer1.addEventListener('mousedown', dragStart1);
+ulParentListContainer1.addEventListener('mousemove', dragMove1);
 window.addEventListener('mouseup', stopDragging1);
+
+// Для мобильных устройств
+ulParentListContainer1.addEventListener('touchstart', dragStart1);
+ulParentListContainer1.addEventListener('touchmove', dragMove1);
+ulParentListContainer1.addEventListener('touchend', stopDragging1);

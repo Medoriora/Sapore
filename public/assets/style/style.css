@@ -1,5 +1,4 @@
 
-      
 body{
   background-color: #F7F7F7;
   font-size: 20px;
@@ -9,7 +8,7 @@ body{
 } 
 
 
-  
+
 * {
     margin: 0;
     padding: 0;
@@ -19,11 +18,6 @@ body{
 .container {
     margin: 0 25px;
 }
-
-
-
-
-/* HEADER */
 
 .header-inner {
     background-color: #191919;
@@ -45,7 +39,6 @@ body{
     display: flex;
     align-items: center;
 }
-
 
 .header-link a {
     color: #fff;
@@ -104,7 +97,6 @@ body{
     color: #d4a373;
     border: 2px solid #d4a373;
 }
-
 
 .menu-container {
     display: flex;
@@ -167,7 +159,6 @@ body{
     border-color: rgba(95, 73, 52, 0.6);
     transition: all 0.1s ease;
 }
-
 
 .menu-text {
     font-size: 20px;
@@ -304,8 +295,47 @@ body{
         }
       }
 
+      @media only screen and (max-width: 768px) {
+        .banner {
+    
+    height: 60%; /* Растянуть на всю высоту экрана */
+}
+    h1 {
+        font-size: 80px; /* Ещё меньше для мобильных устройств */
+        line-height: 1.2;
+    }
 
-/* SEANS */
+    .fill2,
+    .mask2 {
+        font-size: 45px;
+    }
+
+    .macks {
+        clip-path: circle(150px at var(--clip-position)); /* Уменьшаем радиус */
+        -webkit-mask-size: 200px 200px; /* Меньший размер маски */
+    }
+}
+
+/* Адаптация для экранов до 480px */
+@media only screen and (max-width: 480px) {
+    .banner {
+    
+    height: 60%; /* Растянуть на всю высоту экрана */
+}
+    h1 {
+        font-size: 60px; /* Минимальный размер для маленьких экранов */
+    }
+
+    .fill2,
+    .mask2 {
+        font-size: 40px;
+    }
+
+    .macks {
+        clip-path: circle(100px at var(--clip-position)); /* Ещё меньший радиус */
+        -webkit-mask-size: 150px 150px;
+    }
+}
 
 .seans {
     padding-bottom: 10px;
@@ -541,7 +571,7 @@ body{
 
 
 /* Медиазапрос для адаптации на устройствах шириной до 480px */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     
     main {
         
@@ -573,9 +603,9 @@ body{
     position: fixed; /* Закрепляет меню в окне */
     top: 0;          /* Начало меню от верхней границы окна */
     right: -100%;    /* Меню скрыто справа за экраном */
-    height: 350px;    /* Занимает всю высоту окна */
+    height: 370px;    /* Занимает всю высоту окна */
     width: 300px;    /* Ширина меню */
-    background-color: rgba(248, 245, 240, 0.7); /* Цвет с прозрачностью (0.9 — 90% видимости) */
+    background-color: hsl(30, 53%, 64%); /* Цвет с прозрачностью (0.9 — 90% видимости) */
     border-radius: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -585,11 +615,10 @@ body{
     z-index: 1000; /* Размещает меню поверх других элементов */
 }
 
-
 .burger-slide .nib {
     color: #333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
     margin: 10px 0;
     padding: 10px; /* Добавляем внутренние отступы */
     border-radius: 10px; /* Закругляем фон */
@@ -696,10 +725,18 @@ body{
         padding: 10px 20px; /* Уменьшаем размеры кнопки */
         font-size: 14px;
     }
-
+    
+.menu-container {
+    padding-top: 0px;
+    
+}
+.seans {
+    padding-bottom: 30px;
+}
       /* Уменьшение текста в заголовке */
   .seans-tite p {
-    font-size: 24px; /* Уменьшенный размер текста */
+    padding-top: 80px;
+    font-size: 32px; /* Уменьшенный размер текста */
     text-align: center; /* Центрирование текста */
   }
 
@@ -712,39 +749,50 @@ body{
 
   .food-list_card {
     width: 90%; /* Карточки занимают 90% ширины экрана */
-    max-width: 300px; /* Ограничение максимальной ширины карточек */
+    height: 550px;
     margin-bottom: 15px; /* Отступ между карточками */
   }
 
+  .food-list_image {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
   /* Уменьшение шрифтов внутри карточек */
   .food-list_title {
-    font-size: 16px;
+    text-align: center;
+    font-size: 28px;
   }
 
   .food-list_count1 {
+    margin-left: -60px;
     margin-top: 3px;
-    font-size: 14px;
+    font-size: 30px;
   }
 
   .food-list_count2 {
+    margin-left: -60px;
     margin-top: 3px;
-    font-size: 14px;
+    font-size: 30px;
   }
 
   .food-list_count3 {
-    
+    margin-left: -60px;
     margin-top: 3px;
-    font-size: 14px;
+    font-size: 30px;
 
   }
   .food-list_count4 {
+    margin-left: -60px;
     margin-top: 3px;
-    font-size: 14px;
+    font-size: 30px;
   }
 
   .food-list_count5 {
+    margin-left: -60px;
     margin-top: 3px;
-    font-size: 14px;
+    font-size: 30px;
   }
 
   .food-list_desc1,
@@ -753,24 +801,26 @@ body{
   .food-list_desc4,
   .food-list_desc5 {
     margin-bottom: 10px;
-    font-size: 10px;
+    font-size: 20px;
   }
 
   .food-list_weight,
   .food-list_weight1,
   .food-list_kal,
   .food-list_kal1 {
-    width: 60px; /* Уменьшаем ширину */
-    height: 28px; /* Уменьшаем высоту */
-    font-size: 12px; /* Уменьшаем размер текста */
+    width: 95px; /* Уменьшаем ширину */
+    height: 38px; /* Уменьшаем высоту */
+    font-size: 19px; /* Уменьшаем размер текста */
+    margin-top: 390px;
   }
 
-  .food-list_weight1 {
-    margin-top: -3px;
-  }
 
-  .food-list_kal1{
-    margin-top: -3px;
+  .food-list_weight2,
+  .food-list_kal2 {
+    width: 95px; /* Уменьшаем ширину */
+    height: 38px; /* Уменьшаем высоту */
+    font-size: 19px; /* Уменьшаем размер текста */
+    margin-top: 390px;
   }
 
 

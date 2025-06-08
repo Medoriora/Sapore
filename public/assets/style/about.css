@@ -105,24 +105,23 @@ body{
       border: 2px solid #d4a373;
   }
 
-  /*слайдер*/
-  body {
+body {
     background: #F7F7F7;
     font-family: 'Montserrat Alternates', sans-serif;
     color: #222;
-  }
-  
-  a {
+}
+
+a {
     color: currentColor;
     text-decoration: none;
-  }
-  
-  p {
+}
+
+p {
     font-size: 16px;
     line-height: 19px;
-  }
-  
-  .flex-caption {
+}
+
+.flex-caption {
     position: relative;
     background: #fff;
     color: #333;
@@ -130,101 +129,98 @@ body{
     display: table;
     padding: 30px;
     border-radius: 4px;
-  }
-  
-  .flex-caption p {
+}
+
+.flex-caption p {
     margin-top: 20px;
     color: #777;
-  }
-  
-  .flex-caption h1 {
+}
+
+.flex-caption h1 {
     margin-top: 10px;
     color: #000000;
-  }
+}
 
-  li.css a {
-        border-radius: 0;
-  }
-  
-  .flex-viewport {
+li.css a {
+    border-radius: 0;
+}
+
+.flex-viewport {
     max-height: 450px;
     max-width: 880px;
-  }
-  
-  section.slider {
+}
+
+section.slider {
     width: 880px;
     margin: 5% auto;
-  }
-  
-  .flexslider .slides img {
+}
+
+.flexslider .slides img {
     height: auto;
     max-width: 490px;
     border-radius: 4px 0px 0px 4px;
     float: left;
-  }
-  
-  .flexslider {
+}
+
+.flexslider {
     border: 0px solid #ffffff;
-    box-shadow: 0 1px 30px rgba(0,0,0,.4);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, .4);
     transition: 400ms ease;
-  }
-  
-  span.date {
+}
+
+span.date {
     padding-bottom: 20px;
     font-size: 14px;
-  }
-  
-  .flex-control-nav {
+}
+
+.flex-control-nav {
     bottom: 5px;
-  }
-  
-  .flex-control-paging li a {
+}
+
+.flex-control-paging li a {
     width: 8px;
     height: 8px;
     background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .flex-control-paging li a:hover {
+}
+
+.flex-control-paging li a:hover {
     background: #4183D7;
-  }
-  
-  .flex-control-paging li a.flex-active {
+}
+
+.flex-control-paging li a.flex-active {
     background: #4183D7;
-  }
-  
-  .flex-control-nav {
+}
+
+.flex-control-nav {
     text-align: left;
     margin-left: 20px;
-  }
-  
-  .flexslider .slides > li {
-    position: relative;
-  }
-  
+}
 
-  
-  .flex-direction-nav a:before {
+.flexslider .slides > li {
+    position: relative;
+}
+
+.flex-direction-nav a:before {
     font-family: "FontAwesome";
     font-size: 38px;
     display: inline-block;
     content: '\f104';
     color: #fff;
-  }
-  
-  .flex-direction-nav a.flex-next:before {
+}
+
+.flex-direction-nav a.flex-next:before {
     content: '\f105';
     color: #333;
-  }
-  
-  a:hover .card-outmore {
+}
+
+a:hover .card-outmore {
     background: #2C3E50;
     color: #fff;
-  }
-  
-  a:hover .flexslider {
-    box-shadow: 0 10px 50px rgba(0,0,0,.6);
-  }
+}
 
+a:hover .flexslider {
+    box-shadow: 0 10px 50px rgba(0, 0, 0, .6);
+}
 
 
 .about p{
@@ -375,7 +371,7 @@ body{
     background: #fff8f2; /* Нежный фон с оттенком кремового */
     border-radius: 15px; /* Закругленные углы */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
-    font-family: 'Georgia', serif; /* Шрифт с итальянским акцентом */
+    
     color: #5a4636; /* Тёплый коричневый цвет текста */
     line-height: 1.8; /* Увеличенный интервал между строками */
     text-align: justify; /* Выравнивание по ширине */
@@ -449,7 +445,7 @@ body{
 
 
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     
     main {
         
@@ -481,9 +477,9 @@ body{
     position: fixed; /* Закрепляет меню в окне */
     top: 0;          /* Начало меню от верхней границы окна */
     right: -100%;    /* Меню скрыто справа за экраном */
-    height: 350px;    /* Занимает всю высоту окна */
+    height: 370px;    /* Занимает всю высоту окна */
     width: 300px;    /* Ширина меню */
-    background-color: rgba(248, 245, 240, 0.7); /* Цвет с прозрачностью (0.9 — 90% видимости) */
+    background-color: hsl(30, 53%, 64%); /* Цвет с прозрачностью (0.9 — 90% видимости) */
     border-radius: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -492,12 +488,10 @@ body{
     transition: right 0.3s ease-in-out;
     z-index: 1000; /* Размещает меню поверх других элементов */
 }
-
-
 .burger-slide .nib {
     color: #333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
     margin: 10px 0;
     padding: 10px; /* Добавляем внутренние отступы */
     border-radius: 10px; /* Закругляем фон */
@@ -505,12 +499,10 @@ body{
 }
 
 .burger-slide .nib:hover {
-    background-color: #A2AC23; /* Цвет фона при наведении */
+    background-color: #d4a373; /* Цвет фона при наведении */
     color: #ffffff; /* Цвет текста при наведении */
     transform: scale(1.1); /* Увеличение текста */
 }
-
-
 
 /* Ссылки внутри меню */
 .burger-slide a {
@@ -530,8 +522,7 @@ body{
     right: 0;
 }
 
-
-    .restmenu{
+  .restmenu{
         margin-right: 20px;
         margin-top: 20px;
         display: block;
@@ -572,4 +563,52 @@ body{
         padding: 7px 15px; /* Уменьшаем кнопку */
         font-size: 12px;
     }
+  
+
+  .description {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 20px;
+
   }
+
+
+  section.slider {
+    width: 85%;
+    padding: 0 10px; /* Немного отступов по бокам */
+    box-sizing: border-box;
+  }
+.flexslider{
+      border: 1px solid #ffffff;
+}
+    .flexslider .slides img {
+        max-width: 100%; /* Изображения занимают всю ширину */
+        height: auto; /* Автоматическое соотношение сторон */
+        border-radius: 1px;
+        margin-bottom: 15px; /* Отступ для текста под картинкой */
+        float: none; /* Убираем выравнивание */
+    }
+
+    .flex-caption {
+        max-width: 100%; /* Текст занимает большую часть экрана */
+        margin: 0; /* Центрируем текст */
+       
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    h1 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .flex-direction-nav a:before {
+        font-size: 28px; /* Уменьшаем стрелки */
+    }
+}

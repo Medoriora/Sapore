@@ -213,46 +213,188 @@ body{
             margin-bottom: 20px;
             color: #d4a373;
         }
+
+.restmenu {
+    display: inline-block; /* Для корректной работы с размерами */
+    width: 30px;
+    height: 20px;
+    display: none;
+}
+
+.restmenu img {
+    width: 100%; /* Подстраивается под контейнер */
+    height: 100%; /* Подстраивается под контейнер */
+    object-fit: contain; /* Сохраняет пропорции картинки */
+}
+
+@media (max-width: 768px) {
+
+        .button-header{
+        display: none;
+    }
+   /* Основной стиль меню */
+.restmenu {
+    position: relative;
+}
+
+/* Иконка бургера */
+.burger-icon img {
+    width: 40px; /* Размер иконки */
+    cursor: pointer;
+}
+
+/* Выдвижное меню */
+.burger-slide {
+    position: fixed; /* Закрепляет меню в окне */
+    top: 0;          /* Начало меню от верхней границы окна */
+    right: -100%;    /* Меню скрыто справа за экраном */
+    height: 370px;    /* Занимает всю высоту окна */
+    width: 300px;    /* Ширина меню */
+    background-color: hsl(30, 53%, 64%); /* Цвет с прозрачностью (0.9 — 90% видимости) */
+    border-radius: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000; /* Размещает меню поверх других элементов */
+}
+
+.burger-slide .nib {
+    color: #333;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 10px 0;
+    padding: 10px; /* Добавляем внутренние отступы */
+    border-radius: 10px; /* Закругляем фон */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.burger-slide .nib:hover {
+    background-color: #d4a373; /* Цвет фона при наведении */
+    color: #ffffff; /* Цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение текста */
+}
+
+
+
+/* Ссылки внутри меню */
+.burger-slide a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Скрытое меню */
+.hidden {
+    right: -100%;
+}
+
+/* Показ меню */
+.visible {
+    right: 0;
+}
+
+
+    .restmenu{
+        margin-right: 20px;
+        margin-top: 20px;
+        display: block;
+        width: 35px;
+        height: 30px;
+    }
+
+
+  /* Контейнеры в столбик и убираем отступы по бокам */
+  .container {
+    flex-direction: column;
+    margin: 10px;
+    padding: 15px;
+  }
+
+  /* Отзывы и форма под друг другом */
+  .reviews, .add-review {
+    flex: none;
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+
+  /* Убираем margin справа у блока отзывов */
+  .reviews {
+    margin-right: 0;
+  }
+
+  /* Центрируем заголовок */
+  h1 {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  /* Кнопка отправки в форме — ширина 100% */
+  .add-review button {
+    width: 100%;
+  }
+
+  /* Звезды рейтингa — чуть меньше и с центровкой */
+  .add-review .stars {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .add-review .star {
+    font-size: 20px;
+  }
+
+  /* Заголовки отзывов чуть меньше */
+  .review h3 {
+    font-size: 16px;
+  }
+
+  /* Тексты отзывов меньше шрифт и отступы */
+  .review p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  /* Паддинги внутри отзывов и формы */
+  .review, .add-review input, .add-review textarea {
+    padding: 12px;
+  }
+}
+
     </style>
 </head>
 <body>
   <main>
-    <div class="conteiner">
+  <div class="conteiner">
+    <header>
+      <div class="header-inner">
+        <img src="./assets/logo1.png" width="70" height="70" alt="" class="imgheader">
+        <div class="header-link">
+          <a href="./index.html">Главная</a>
+          <a href="./menu.html">Меню</a>
+          <a href="./about.html">О нас</a>
+          <a href="./otziv.html">Отзывы</a>
+        </div>
+          <a class="button-korz" href="./cart.html"> <img src="./assets/corz.jpg" alt=""></a>
 
-        <header>
-  
-          <div class="header-inner">
-      
-            <img src="./assets/logo1.png" width="70" height="70" alt="" class="imgheader">
-      
-            <div class="header-link">
-              <a href="./index.html">Главная</a>
-              <a href="./menu.html">Меню</a>
-              <a href="./about.html">О нас</a>
-              <a href="./otziv.html">Отзывы</a>
+          <div class="restmenu">
+            <a href="#" class="burger-icon">
+                <img src="./assets/Group1.png" alt="Меню">
+            </a>
+        
+            <div class="burger-slide hidden">
+                <a class="nib" href="./index.html">Главная</a>
+                <a class="nib" href="./menu.html">Меню</a>
+                <a class="nib" href="./about.html">О нас</a>
+                <a class="nib" href="./otziv.html">Отзывы</a>
+                <a class="nib" href="./cart.html">Корзина</a>
             </div>
-             
-              <a class="button-korz" href="./cart.html"> <img src="./assets/corz.jpg" alt=""></a>
-              
-  
-  
-  
-              <div class="restmenu">
-                <a href="#" class="burger-icon">
-                    <img src="./assets/Group1.png" alt="Меню">
-                </a>
-            
-                <div class="burger-slide hidden">
-                    <a class="nib" href="./index.html">Главная</a>
-                    <a class="nib" href="./menu.html">Меню</a>
-                    <a class="nib" href="./#">О нас</a>
-                    <a class="nib" href="./#">Отзывы</a>
-                    <a class="nib" href="./contact.html">Контакты</a>
-                </div>
-            </div>
-            <script src="./JavaScript/burgermenu.js"></script>
-          </div>
-        </header>
+        </div>
+        <script src="./JavaScript/burgermenu.js"></script>
+      </div>
+    </header>
 
     </div>  
   
