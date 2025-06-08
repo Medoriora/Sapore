@@ -134,13 +134,11 @@ checkoutButton.addEventListener("click", async (event) => {
   };
 
   try {
-    const response = await fetch("https://sapore.onrender.com/orders/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(order),
-    });
+const response = await fetch("https://sapore.onrender.com/orders/create", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(order),
+});
 
     if (response.ok) {
       const data = await response.json();
