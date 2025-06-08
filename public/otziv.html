@@ -436,12 +436,15 @@ body{
     </div>
 </main>
     <script>
+const API_BASE = 'https://sapore.onrender.com'; // Установите базовый URL
+
 let reviews = [];
 let selectedRating = 0;
 
+
 // Получить отзывы с сервера и отрисовать их
 async function fetchReviews() {
-  const res = await fetch('http://localhost:3000/reviews');
+  const res = await fetch(`${API_BASE}/reviews`);
   reviews = await res.json();
   renderReviews();
 }
@@ -482,7 +485,7 @@ async function addReview() {
 
   const newReview = { name, text, cons, rating: selectedRating };
 
-  const res = await fetch('http://localhost:3000/reviews', {
+  const res = await fetch(`${API_BASE}/reviews`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(newReview),
