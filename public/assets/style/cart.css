@@ -201,6 +201,63 @@ main {
   background: #a0744d;
 }
 
+/* Стили для выбора типа доставки */
+.form-group.delivery-type {
+  margin-bottom: 20px;
+}
+
+.delivery-type label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.delivery-type select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff8f2;
+}
+
+.delivery-type select:focus {
+  border-color: #d4a373;
+  outline: none;
+  box-shadow: 0 0 5px rgba(212, 163, 115, 0.5);
+}
+
+/* Скрытые поля для адреса или столика */
+#addressField, 
+#tableField {
+  display: none; /* Изначально скрыты */
+  margin-top: 15px;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+#addressField.active, 
+#tableField.active {
+  display: block;
+  opacity: 1;
+  max-height: 100px; /* Высота поля при раскрытии */
+}
+
+#addressField label, 
+#tableField label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#addressField input, 
+#tableField input {
+  width: 93%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   main {
@@ -211,4 +268,27 @@ main {
   #orderForm {
     width: 100%;
   }
+
+  .cart-item {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+  }
+
+  .cart-item-actions {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    margin-top: 10px;
+  }
+
+  .cart-item-actions .remove-from-cart {
+    width: 100% !important;
+    padding: 10px !important;
+    padding-top: 150px;
+  }
+
+
+
+
 }

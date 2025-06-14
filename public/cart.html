@@ -13,30 +13,63 @@
   </header>
   
   <main>
- <main>
     <div id="cartItems"></div>
 
-<div id="orderForm">
-    <h2>Оформление заказа</h2>
-    <form>
-      <div class="form-group">
-        <label for="customerName">Имя</label>
-        <input type="text" id="customerName" name="customerName" required>
-      </div>
-      <div class="form-group">
-        <label for="customerPhone">Телефон</label>
-        <input type="tel" id="customerPhone" name="customerPhone" required>
-      </div>
-      <div id="cartSummary">
-        <h3>Итого:</h3>
-        <p id="cartTotalPrice">0 руб</p>
-        <button type="submit" id="checkoutButton">Оформить заказ</button>
-      </div>
-    </form>
-  </div>
-
-</main>
-<script src="./JavaScript/data.js"></script>
+    <div id="orderForm">
+      <h2>Оформление заказа</h2>
+      <form id="orderFormElement">
+        <div class="form-group">
+          <label for="customerName">Имя</label>
+          <input type="text" id="customerName" name="customerName" required>
+        </div>
+        <div class="form-group">
+          <label for="customerPhone">Телефон</label>
+          <input type="tel" id="customerPhone" name="customerPhone" required>
+        </div>
+        <div class="form-group">
+          <label for="deliveryType">Тип доставки</label>
+          <select id="deliveryType" name="deliveryType" required>
+            <option value="">Выберите вариант</option>
+            <option value="delivery">Доставка на адрес</option>
+            <option value="table">К столику в ресторане</option>
+          </select>
+        </div>
+        <div class="form-group" id="addressField" style="display: none;">
+          <label for="deliveryAddress">Адрес доставки</label>
+          <input type="text" id="deliveryAddress" name="deliveryAddress">
+        </div>
+        <div class="form-group" id="tableField" style="display: none;">
+          <label for="tableNumber">Номер столика</label>
+          <input type="text" id="tableNumber" name="tableNumber">
+        </div>
+        <div id="cartSummary">
+          <h3>Итого:</h3>
+          <p id="cartTotalPrice">0 руб</p>
+          <button type="submit" id="checkoutButton">Оформить заказ</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <script src="./JavaScript/data.js"></script>
   <script src="./JavaScript/cart.js"></script>
+  <script>
+    document.getElementById('deliveryType').addEventListener('change', function () {
+      const deliveryType = this.value;
+      const addressField = document.getElementById('addressField');
+      const tableField = document.getElementById('tableField');
+      
+      if (deliveryType === 'delivery') {
+        addressField.style.display = 'block';
+        tableField.style.display = 'none';
+      } else if (deliveryType === 'table') {
+        addressField.style.display = 'none';
+        tableField.style.display = 'block';
+      } else {
+        addressField.style.display = 'none';
+        tableField.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
