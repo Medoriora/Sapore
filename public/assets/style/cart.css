@@ -7,6 +7,7 @@ body {
   flex-direction: column;
   background-color: #f9f9f9;
   color: #333;
+  overflow-x: hidden;
 }
 
 header {
@@ -48,6 +49,7 @@ main {
   width: 90%;
   max-width: 1200px;
   gap: 20px;
+  overflow-x: hidden; /* Устранение горизонтальной прокрутки */
 }
 
 /* Секция товаров */
@@ -57,14 +59,16 @@ main {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden; /* Устранение горизонтальной прокрутки внутри блока */
 }
 
 .cart-item {
   display: flex;
   align-items: center;
-  gap: 20px; /* расстояние между картинкой и информацией */
+  gap: 20px;
   border-bottom: 1px solid #ccc;
   padding: 15px 0;
+  max-width: 100%; /* Убедиться, что элемент не выходит за пределы */
 }
 
 .cart-item img {
@@ -73,13 +77,16 @@ main {
   object-fit: cover;
   border-radius: 8px;
   flex-shrink: 0; /* чтобы картинка не сжималась */
+  max-width: 100%
 }
+
 
 .cart-item-details {
   flex-grow: 1; /* занимает оставшееся место */
   display: flex;
   flex-direction: column;
   gap: 5px;
+  min-width: 0;
 }
 
 .cart-item-details h4 {
@@ -260,31 +267,32 @@ main {
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  main {
+ main {
     flex-direction: column;
+    width: 100%; /* Гарантия, что не будет выхода за пределы экрана */
+    margin: 0;
   }
 
-
   .cart-item {
-    flex-direction: row !important;
-    align-items: flex-start !important;
+    flex-direction: row;
+    align-items: center;
+    width: 100%; /* Гарантия, что элемент не выходит за пределы */
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .cart-item-details {
+    width: calc(100% - 120px); /* Убедиться, что описание не выходит за пределы */
   }
 
   .cart-item-actions {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
     margin-top: 10px;
+    align-self: flex-end;
   }
-
-  .cart-item-actions .remove-from-cart {
-    width: 100% !important;
-    padding: 10px !important;
-    padding-top: 150px;
-  }
-
-
 
 
 }
