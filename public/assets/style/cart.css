@@ -264,10 +264,6 @@ main {
     flex-direction: column;
   }
 
-  #cartItems,
-  #orderForm {
-    width: 100%;
-  }
 
   .cart-item {
     flex-direction: row !important;
